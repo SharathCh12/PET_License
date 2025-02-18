@@ -1,0 +1,9 @@
+{
+	"name": "Pet123",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4cef040e-4128-4ddb-9fc2-e09ee6c5a4be",
+		"tenantId": "a8eec281-aaa3-4dae-ac9b-9a398b9215e7"
+	}
+}

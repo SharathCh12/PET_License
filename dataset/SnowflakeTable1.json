@@ -1,0 +1,56 @@
+{
+	"name": "SnowflakeTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "snowflake_pet_stage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": [
+			{
+				"name": "LICENSE_ISSUE_DATE",
+				"type": "DATE"
+			},
+			{
+				"name": "LICENSE_NUMBER",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ANIMAL_NAME",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SPECIES",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "PRIMARY_BREED",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SECONDARY_BREED",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ZIP_CODE",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "DI_JOB_ID",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "DI_LOAD_DT",
+				"type": "DATE"
+			}
+		],
+		"typeProperties": {
+			"schema": "NEW_SCHEMA",
+			"table": "PET_LICENSE_STAGE"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
