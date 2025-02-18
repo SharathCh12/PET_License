@@ -31,7 +31,7 @@
 			],
 			"scriptLines": [
 				"parameters{",
-				"     Job_id_Param as string",
+				"     Job_id as string (\"10\")",
 				"}",
 				"source(output(",
 				"          {License Issue Date} as string,",
@@ -48,7 +48,7 @@
 				"     ignoreNoFilesFound: false) ~> readTSV",
 				"readTSV derive({License Issue Date} = toDate({License Issue Date}, 'MMMM dd yyyy'),",
 				"          {Secondary Breed} = upper({Secondary Breed}),",
-				"          Job_Exec_ID = $Job_id_Param,",
+				"          Job_Exec_ID = $Job_id,",
 				"          Job_load_date = currentDate()) ~> derivedColumn1",
 				"derivedColumn1 select(mapColumn(",
 				"          LIC_ISSUE_DATE = {License Issue Date},",
