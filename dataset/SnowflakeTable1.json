@@ -13,14 +13,6 @@
 				"type": "DATE"
 			},
 			{
-				"name": "LICENSE_NUMBER",
-				"type": "VARCHAR"
-			},
-			{
-				"name": "ANIMAL_NAME",
-				"type": "VARCHAR"
-			},
-			{
 				"name": "SPECIES",
 				"type": "VARCHAR"
 			},
@@ -51,6 +43,5 @@
 			"schema": "NEW_SCHEMA",
 			"table": "PET_LICENSE_STAGE"
 		}
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }
