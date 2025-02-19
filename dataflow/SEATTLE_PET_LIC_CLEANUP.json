@@ -79,14 +79,14 @@
 				"     stageInsert: true,",
 				"     mapColumn(",
 				"          SPECIES = Species,",
-				"          Primary_Breed = {Primary Breed},",
-				"          Secondary_Breed,",
-				"          License_Issue_Date,",
-				"          Job_Exec_ID,",
-				"          Job_load_date,",
-				"          License_Number,",
-				"          Animals_Name,",
-				"          Zip_Code",
+				"          PRIMARY_BREED = {Primary Breed},",
+				"          SECONDARY_BREED = Secondary_Breed,",
+				"          LICENSE_ISSUE_DATE = License_Issue_Date,",
+				"          JOB_EXEC_ID = Job_Exec_ID,",
+				"          JOB_LOAD_DATE = Job_load_date,",
+				"          LICENSE_NUMBER = License_Number,",
+				"          ANIMALS_NAME = Animals_Name,",
+				"          ZIP_CODE = Zip_Code",
 				"     )) ~> sink1"
 			]
 		}
