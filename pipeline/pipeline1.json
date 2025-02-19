@@ -19,7 +19,7 @@
 						"referenceName": "SEATTLE_PET_LIC_CLEANUP",
 						"type": "DataFlowReference",
 						"parameters": {
-							"Job_id_Param": {
+							"Job_id": {
 								"value": "'@{pipeline().RunId}'",
 								"type": "Expression"
 							}
