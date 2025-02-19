@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "SnowflakeTable1",
+						"referenceName": "SnowflakeTable2",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -44,7 +44,7 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     limit: 0,",
+				"     limit: 100,",
 				"     ignoreNoFilesFound: false) ~> readTSV",
 				"readTSV derive(License_Issue_Date = toDate({License Issue Date}, 'MMMM dd yyyy'),",
 				"          Secondary_Breed = iifNull({Secondary Breed}, 'Unknown'),",
@@ -69,29 +69,24 @@
 				"     skipDuplicateMapOutputs: false) ~> select1",
 				"select1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     input(",
-				"          LICENSE_ISSUE_DATE as string,",
-				"          SPECIES as string,",
-				"          PRIMARY_BREED as string,",
-				"          SECONDARY_BREED as string,",
-				"          ZIP_CODE as string,",
-				"          DI_JOB_ID as string,",
-				"          DI_LOAD_DT as string",
-				"     ),",
 				"     deletable:false,",
 				"     insertable:true,",
 				"     updateable:false,",
 				"     upsertable:false,",
 				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
 				"     stageInsert: true,",
 				"     mapColumn(",
-				"          LICENSE_ISSUE_DATE = License_Issue_Date,",
-				"          SPECIES = Species,",
-				"          PRIMARY_BREED = {Primary Breed},",
-				"          SECONDARY_BREED = Secondary_Breed,",
-				"          ZIP_CODE = Zip_Code,",
-				"          DI_JOB_ID = Job_Exec_ID,",
-				"          DI_LOAD_DT = Job_load_date",
+				"          Species,",
+				"          {Primary Breed},",
+				"          Secondary_Breed,",
+				"          License_Issue_Date,",
+				"          Job_Exec_ID,",
+				"          Job_load_date,",
+				"          License_Number,",
+				"          Animals_Name,",
+				"          Zip_Code",
 				"     )) ~> sink1"
 			]
 		}

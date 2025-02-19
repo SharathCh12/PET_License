@@ -1,0 +1,16 @@
+{
+	"name": "SnowflakeTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "snowflake_pet_stage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": [],
+		"typeProperties": {
+			"schema": "NEW_SCHEMA",
+			"table": "PET_LICENSE_STAGE"
+		}
+	}
+}
