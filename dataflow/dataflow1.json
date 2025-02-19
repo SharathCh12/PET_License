@@ -43,7 +43,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "BREED_S2",
+						"referenceName": "SnowflakeTable3",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -178,14 +178,11 @@
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
+				"          PET_LIC_SK as string,",
+				"          DATE_SK as string,",
+				"          LOCATION_SK as string,",
 				"          BREED_SK as string,",
-				"          START_DT as string,",
-				"          END_DT as string,",
-				"          IS_CURRENT as string,",
-				"          BREED_DK as string,",
-				"          SPECIES_NAME as string,",
-				"          PRIMARY_BREED_NAME as string,",
-				"          SECONDARY_BREED_NAME as string,",
+				"          LIC_NUM as string,",
 				"          DI_JOB_ID as string,",
 				"          DI_LOAD_DT as string",
 				"     ),",
@@ -194,9 +191,15 @@
 				"     updateable:false,",
 				"     upsertable:false,",
 				"     format: 'table',",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     stageInsert: true) ~> sink1"
+				"     stageInsert: true,",
+				"     mapColumn(",
+				"          PET_LIC_SK,",
+				"          DATE_SK = DATE_DIM_SK,",
+				"          LOCATION_SK,",
+				"          BREED_SK,",
+				"          DI_JOB_ID,",
+				"          DI_LOAD_DT",
+				"     )) ~> sink1"
 			]
 		}
 	}
