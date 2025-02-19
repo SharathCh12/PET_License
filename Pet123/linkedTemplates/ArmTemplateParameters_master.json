@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Pet123"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"Tobronze_accountKey": {
+			"value": ""
+		},
+		"rawdatafrombrinze_accountKey": {
+			"value": ""
+		},
+		"rawdatafrombronze1_accountKey": {
+			"value": ""
+		},
+		"snowflake_pet_stage_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://petlicensefeb17.dfs.core.windows.net/"
+		},
+		"Tobronze_properties_typeProperties_url": {
+			"value": "https://petlicense123.dfs.core.windows.net/"
+		},
+		"rawdatafrombrinze_properties_typeProperties_url": {
+			"value": "https://petlicensefeb17.dfs.core.windows.net/"
+		},
+		"rawdatafrombronze1_properties_typeProperties_url": {
+			"value": "https://petlicensefeb17.dfs.core.windows.net/"
+		},
+		"snowflake_pet_stage_properties_typeProperties_database": {
+			"value": "NEW_DB"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

@@ -1,0 +1,132 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Pet123"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"Tobronze_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Tobronze'"
+		},
+		"rawdatafrombrinze_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'rawdatafrombrinze'"
+		},
+		"rawdatafrombronze1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'rawdatafrombronze1'"
+		},
+		"snowflake_pet_stage_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'snowflake_pet_stage'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://petlicensefeb17.dfs.core.windows.net/"
+		},
+		"Tobronze_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://petlicense123.dfs.core.windows.net/"
+		},
+		"rawdatafrombrinze_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://petlicensefeb17.dfs.core.windows.net/"
+		},
+		"rawdatafrombronze1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://petlicensefeb17.dfs.core.windows.net/"
+		},
+		"snowflake_pet_stage_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "NEW_DB"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "Pet123_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"Tobronze_accountKey": {
+						"value": "[parameters('Tobronze_accountKey')]"
+					},
+					"rawdatafrombrinze_accountKey": {
+						"value": "[parameters('rawdatafrombrinze_accountKey')]"
+					},
+					"rawdatafrombronze1_accountKey": {
+						"value": "[parameters('rawdatafrombronze1_accountKey')]"
+					},
+					"snowflake_pet_stage_password": {
+						"value": "[parameters('snowflake_pet_stage_password')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"Tobronze_properties_typeProperties_url": {
+						"value": "[parameters('Tobronze_properties_typeProperties_url')]"
+					},
+					"rawdatafrombrinze_properties_typeProperties_url": {
+						"value": "[parameters('rawdatafrombrinze_properties_typeProperties_url')]"
+					},
+					"rawdatafrombronze1_properties_typeProperties_url": {
+						"value": "[parameters('rawdatafrombronze1_properties_typeProperties_url')]"
+					},
+					"snowflake_pet_stage_properties_typeProperties_database": {
+						"value": "[parameters('snowflake_pet_stage_properties_typeProperties_database')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "Pet123_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'Pet123_ArmTemplate_0')]"
+			]
+		}
+	]
+}
