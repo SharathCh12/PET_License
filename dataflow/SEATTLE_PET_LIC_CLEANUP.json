@@ -78,7 +78,7 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     stageInsert: true,",
 				"     mapColumn(",
-				"          Species,",
+				"          SPECIES = Species,",
 				"          {Primary Breed},",
 				"          Secondary_Breed,",
 				"          License_Issue_Date,",
