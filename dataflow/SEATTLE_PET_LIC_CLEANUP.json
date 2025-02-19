@@ -79,7 +79,7 @@
 				"     stageInsert: true,",
 				"     mapColumn(",
 				"          SPECIES = Species,",
-				"          {Primary Breed},",
+				"          Primary_Breed = {Primary Breed},",
 				"          Secondary_Breed,",
 				"          License_Issue_Date,",
 				"          Job_Exec_ID,",
